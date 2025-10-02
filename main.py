@@ -9,7 +9,7 @@ from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 from xgboost import XGBRegressor
 
 # --- 1. Data Loading and Initial Cleaning ---
-data = pd.read_csv('/kaggle/input/passwords/passwords.csv', on_bad_lines='skip')
+data = pd.read_csv('passwords.csv', on_bad_lines='skip')
 columns_to_drop = ["rank", "value", "time_unit", "offline_crack_sec", "rank_alt", "font_size"]
 data = data.drop(columns=columns_to_drop, axis=1)
 data.dropna(inplace=True)
@@ -73,4 +73,5 @@ plt.title('Actual vs. Predicted Strength Scores')
 plt.xlabel('Actual Values (Normalized)')
 plt.ylabel('Predicted Values (Normalized)')
 plt.grid(True)
+
 plt.show()
